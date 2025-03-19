@@ -8,6 +8,10 @@ import { Toaster } from "sonner";
 
 import { TooltipProvider } from "./components/ui/tooltip";
 import { Layout } from "./Layout";
+import { Keys } from "./pages/Keys";
+import { Profile } from "./pages/Profile";
+import { Relays } from "./pages/Relays";
+import About from "./pages/About";
 
 const queryClient = new QueryClient({});
 
@@ -18,9 +22,14 @@ if (rootElement) {
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools buttonPosition="bottom-right" />
         <TooltipProvider>
-          <BrowserRouter>
+          <BrowserRouter basename="/main_window">
             <Routes>
-              <Route path="/" element={<Layout />} />
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Keys />} />
+                <Route path="profile" element={<Profile />} />
+                <Route path="relays" element={<Relays />} />
+                <Route path="about" element={<About />} />
+              </Route>
             </Routes>
           </BrowserRouter>
         </TooltipProvider>
