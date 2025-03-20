@@ -20,7 +20,7 @@ if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools buttonPosition="bottom-right" />
+        {/* <ReactQueryDevtools buttonPosition="bottom-right" /> */}
         <TooltipProvider>
           <BrowserRouter basename="/main_window">
             <Routes>
